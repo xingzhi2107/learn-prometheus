@@ -14,3 +14,10 @@ services:
       # 把9100端口绑定到主机上只是为了方便我们查看 node-exporter 的 /metrics 接口
       # 的返回结果。
       - 9100:9100
+
+  grafana:
+    image: grafana/grafana:10.2.4
+    volumes:
+      - ./grafana-data/data:/var/lib/grafana
+    ports:
+      - 3000:3000
