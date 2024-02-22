@@ -7,3 +7,10 @@ services:
       - ./prometheus-data:/prometheus
     ports:
       - 9090:9090
+
+  node-exporter:
+    image: prom/node-exporter:v1.7.0
+    ports:
+      # 把9100端口绑定到主机上只是为了方便我们查看 node-exporter 的 /metrics 接口
+      # 的返回结果。
+      - 9100:9100
